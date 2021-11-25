@@ -1,66 +1,11 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-
-/*
-
-	This is a compounding function. Can be used to determine investment or debt
-	growth over time.
-
-*/
-
-double calcMortgage(double principal, double rate, double years)
-
-{	
-	double total;
-	rate++;	
-	total = (principal) * pow(rate,years);
-		
-	return total;
-}
-
-/*
-	
-	 This function subtracts the annual amount paid while adding the interest
-   	 to the amount remaining each year. It repeats this until the loan is paid off
-	 or has reached the set number of years allotted to pay.
-
-*/
-
-double calcReducing(double principal, double rate, int years, double paid, FILE *fp, char *name)
- 
-{
-	double total_remaining;
-	total_remaining = principal;
-
-	// Add 1 to the rate to keep the calculations simple. 	
-
-	rate++;
-	int i;
-
-
-	for(i=0; i<years; i++)
-	{
-	    if(total_remaining>=0)
-	    {		
-		printf("\nThe total remaining in year %d is : %lf \n", i, total_remaining);
-		fprintf(fp,"\nThe total remaining in year %d is : %lf \n", i, total_remaining);
-		    
-		total_remaining = ((total_remaining - paid) * rate);
-	    }	
-	}
-
-	return total_remaining;
-
-
-}
+#include "calcmortgage.h"
 
 int main()
 
-{	char filename[30];
+{	char filename[30] ;
 
 	printf("\n\nPlease enter the name of your file : ");
-	scanf("%s", &filename);
+	scanf("%s", filename);
 
 	FILE *logcalc;
 
@@ -89,7 +34,7 @@ int main()
 
 	fprintf(logcalc,"\n****************************************************************** \n");
 	
-	amount = calcReducing(p,r,y,paid,logcalc,filename);
+	amount = calcReducing(p,r,y,paid,logcalc);
 
 	if(amount>=0)
 
