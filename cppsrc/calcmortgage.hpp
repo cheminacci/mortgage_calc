@@ -3,6 +3,7 @@
 #include <cmath>
 #include <iostream>
 #include <fstream>
+#include <string>
 
 double calc_mortgage(double principal, double rate, double years)
 {	
