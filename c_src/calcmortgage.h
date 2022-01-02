@@ -3,7 +3,6 @@
 #include <stdlib.h>
 #include <math.h>
 
-
 double calcMortgage(double principal, double rate, double years)
 {	
 	double total;
@@ -13,18 +12,13 @@ double calcMortgage(double principal, double rate, double years)
 	return total;
 }
 
-
-double calcReducing(double principal, double rate, double years, double paid, FILE *fp)
- 
+double calcReducing(double principal, double rate, double years, double paid, FILE *fp) 
 {
 	double total_remaining;
 	total_remaining = principal;
 
-	// Add 1 to the rate to keep the calculations simple. 	
-
 	rate++;
 	int i;
-
 
 	for(i=0; i<years; i++)
 	{
@@ -36,8 +30,5 @@ double calcReducing(double principal, double rate, double years, double paid, FI
 		total_remaining = ((total_remaining - paid) * rate);
 	    }	
 	}
-
 	return total_remaining;
-
-
 }
