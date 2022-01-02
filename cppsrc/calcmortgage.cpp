@@ -3,11 +3,9 @@
 #include "calcmortgage.hpp"
 
 int main()
-
 {
 	std::string filename;
 	std::cout << "\n\nPlease enter the name of your file : ";
-	
 	getline(std::cin, filename);
 
 	double principal;
