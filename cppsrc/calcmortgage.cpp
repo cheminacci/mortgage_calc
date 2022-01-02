@@ -1,7 +1,6 @@
 // calcmortgage.cpp
 
 #include "calcmortgage.hpp"
-#include <string>
 
 int main()
 
